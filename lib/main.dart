@@ -1,36 +1,36 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
-void main() {
+void main(List<String> args) {
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: MyHomePage(),
+      home: MyPage(),
     );
   }
 }
 
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key});
+class MyPage extends StatelessWidget {
+  const MyPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: Column(
-        children: [
-          IconButton(onPressed: () {}, icon: const Icon(Icons.plus_one)),
-          IconButton(
-              onPressed: () {}, icon: const Icon(Icons.exposure_minus_1)),
-        ],
-      ),
+      floatingActionButton: Column(children: [
+        IconButton(
+          onPressed: (() {}),
+          icon: const Icon(Icons.exposure_minus_1),
+        ),
+        IconButton(
+          onPressed: (() {}),
+          icon: const Icon(Icons.plus_one),
+        ),
+      ]),
       body: Center(
         child: Text(
           '0',

@@ -1,9 +1,24 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class CounterBloc extends Bloc<CounterEvent, int> {}
+class CountBloc extends Bloc<Event, int> {
+  CountBloc() : super(0) {
+    on<Inc>(_inc);
+    on<Dec>(_dec);
+  }
+  _inc(Inc event, Emitter emit) {
+    emit(state + 1);
+  }
 
-abstract class CounterEvent {}
+  _dec(Dec event, Emitter emit) {
+    if (state <= 0) {
+      return;
+    }
+    emit(state - 1);
+  }
+}
 
-class CounterIncEvent extends CounterEvent {}
+abstract class Event {}
 
-class CounterDecEvent extends CounterEvent {}
+class Inc extends Event {}
+
+class Dec extends Event {}
